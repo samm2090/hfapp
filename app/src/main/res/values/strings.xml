@@ -1,0 +1,38 @@
+<resources>
+    <!--Application-->
+    <string name="app_name">Haz Fútbol</string>
+
+    <!--Buttons-->
+    <string name="facebook_register">Conectar con <b>Facebook</b></string>
+    <string name="create_user">Crear Usuario</string>
+    <string name="next">></string>
+    <string name="upload">Examinar</string>
+    
+    <!--Links-->
+    <string name="login">Iniciar Sesión</string>
+    
+    <!--TextViews-->
+    <string name="register_question1">¿Cómo te llamas?</string>
+    <string name="register_question2">¿Cúal es tu edad?</string>
+    <string name="register_question3">¿Y tu correo electrónico?</string>
+    <string name="register_question4">¿Cómo te llaman en la cancha?</string>
+    <string name="upload_your_photo">Sube tu foto</string>
+
+    <!--Forms-->
+    <string name="name">Nombre</string>
+    <string name="last_name">Apellidos</string>
+    <string name="birth_date">Fecha de Nacimiento</string>
+    <string name="gender">Sexo</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="nickname">Apodo</string>
+    <string name="rate_yourself">Califícate</string>
+    <string name="amateur">Amateur</string>
+    <string name="professional">Profesional</string>
+    <string name="goalkeeper">Arquero</string>
+    <string name="defender">Defensa</string>
+    <string name="midfielder">Volante</string>
+    <string name="forward">Delantero</string>
+    <string name="male">Masculino</string>
+    <string name="female">Femenino</string>
+</resources>

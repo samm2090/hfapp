@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="facebook_blue">#255798</color>
+    <color name="facebook_blue_alt">#FF194073</color>
+    <color name="hf_green">#9cba02</color>
+    <color name="hf_green_alt">#FF6D8300</color>
+    <color name="hf_light_blue">#e5eef5</color>
+    <color name="hf_dark_blue">#062134</color>
+    <color name="hf_turquoise">#2b7693</color>
+    <color name="hf_gray">#6c6c6c</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00ff0000</color>
+</resources>
