@@ -25,7 +25,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/hf_logo_plain_small"/>
+                    android:src="@drawable/hf_logo_plain_small" />
 
                 <TextView
                     android:id="@+id/lblQuestion2"
@@ -50,20 +50,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittext_color"
+                    android:focusable="false"
                     android:hint="@string/birth_date"
-                    android:inputType="date"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="18sp" />
-
-                <DatePicker
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:datePickerMode="spinner"
-                    android:calendarViewShown="false"
-                    >
-
-                </DatePicker>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -89,6 +80,7 @@
                         android:paddingLeft="20dp">
 
                         <RadioButton
+                            android:id="@+id/rbtnMale"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/white"
@@ -96,6 +88,7 @@
                             android:textColor="@color/white" />
 
                         <RadioButton
+                            android:id="@+id/rbtnFemale"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"

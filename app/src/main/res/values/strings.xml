@@ -13,7 +13,7 @@
     
     <!--TextViews-->
     <string name="register_question1">¿Cómo te llamas?</string>
-    <string name="register_question2">¿Cúal es tu edad?</string>
+    <string name="register_question2">¿Cuándo naciste?</string>
     <string name="register_question3">¿Y tu correo electrónico?</string>
     <string name="register_question4">¿Cómo te llaman en la cancha?</string>
     <string name="upload_your_photo">Sube tu foto</string>

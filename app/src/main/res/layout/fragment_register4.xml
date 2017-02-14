@@ -119,36 +119,40 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:background="@drawable/background_rounded_white"
                         android:orientation="horizontal">
 
                         <TextView
+                            android:layout_marginLeft="30dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/goalkeeper"
                             android:textColor="@color/hf_gray"
-                            android:textSize="20sp" />
+                            android:textSize="15sp"
+                            android:drawableLeft="@drawable/icon_shirt"/>
 
                         <RatingBar
+                            style="@style/RatingBar"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
-                            android:indeterminateDrawable="@drawable/star_selected"
+                            android:layout_marginLeft="27dp"
                             android:max="5"
                             android:numStars="5"
-                            android:progressDrawable="@drawable/star" />
+                            android:stepSize="1.0" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/background_rounded_white"
                         android:orientation="horizontal">
 
                         <TextView
@@ -156,62 +160,73 @@
                             android:layout_height="wrap_content"
                             android:text="@string/defender"
                             android:textColor="@color/hf_gray"
-                            android:textSize="20sp" />
+                            android:layout_marginLeft="30dp"
+                            android:textSize="15sp"
+                            android:drawableLeft="@drawable/icon_player_defender"/>
 
                         <RatingBar
+                            style="@style/RatingBar"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:indeterminateDrawable="@drawable/star_selected"
+                            android:layout_marginLeft="18dp"
                             android:max="5"
                             android:numStars="5"
-                            android:progressDrawable="@drawable/star" />
+                            android:stepSize="1.0"
+                            />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/background_rounded_white">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/midfielder"
                             android:textColor="@color/hf_gray"
-                            android:textSize="20sp" />
+                            android:layout_marginLeft="30dp"
+                            android:textSize="15sp"
+                            android:drawableLeft="@drawable/icon_player_midfielder"/>
 
                         <RatingBar
+                            style="@style/RatingBar"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:indeterminateDrawable="@drawable/star_selected"
+                            android:layout_marginLeft="21dp"
                             android:max="5"
                             android:numStars="5"
-                            android:progressDrawable="@drawable/star" />
+                            android:stepSize="1.0" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/background_rounded_white">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
                             android:text="@string/forward"
                             android:textColor="@color/hf_gray"
-                            android:textSize="20sp" />
+                            android:textSize="15sp"
+                            android:drawableLeft="@drawable/icon_player_striker"/>
 
                         <RatingBar
+                            style="@style/RatingBar"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:indeterminateDrawable="@drawable/star_selected"
+                            android:layout_marginLeft="8dp"
                             android:max="5"
                             android:numStars="5"
-                            android:progressDrawable="@drawable/star" />
-
+                            android:stepSize="1.0" />
                     </LinearLayout>
 
                     <Button
