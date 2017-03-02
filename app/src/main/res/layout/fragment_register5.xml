@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_register4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hf_light_blue"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/header_register"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:text="@string/upload_your_photo"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/btnUploadPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="2dp"
+                    android:background="@drawable/button_green_rounded_corners"
+                    android:text="@string/upload"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="-50dp"
+                android:src="@drawable/photo_default" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/register_question4"
+                        android:textColor="@color/hf_dark_blue"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/txtNickname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:background="@drawable/edittext_color"
+                        android:hint="@string/nickname"
+                        android:inputType="text"
+                        android:textColor="@color/hf_gray"
+                        android:textColorHint="@color/hf_gray"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="20dp"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/rate_yourself"
+                        android:textColor="@color/hf_dark_blue"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:text="@string/amateur"
+                        android:textColor="@color/hf_turquoise" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/professional"
+                        android:textColor="@color/hf_turquoise" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_rounded_white"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_marginLeft="30dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/goalkeeper"
+                            android:textColor="@color/hf_gray"
+                            android:textSize="15sp"
+                            android:drawableLeft="@drawable/icon_shirt"/>
+
+                        <RatingBar
+                            style="@style/RatingBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="27dp"
+                            android:max="5"
+                            android:numStars="5"
+                            android:stepSize="1.0" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/background_rounded_white"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/defender"
+                            android:textColor="@color/hf_gray"
+                            android:layout_marginLeft="30dp"
+                            android:textSize="15sp"
+                            android:drawableLeft="@drawable/icon_player_defender"/>
+
+                        <RatingBar
+                            style="@style/RatingBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="18dp"
+                            android:max="5"
+                            android:numStars="5"
+                            android:stepSize="1.0"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/background_rounded_white">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/midfielder"
+                            android:textColor="@color/hf_gray"
+                            android:layout_marginLeft="30dp"
+                            android:textSize="15sp"
+                            android:drawableLeft="@drawable/icon_player_midfielder"/>
+
+                        <RatingBar
+                            style="@style/RatingBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="21dp"
+                            android:max="5"
+                            android:numStars="5"
+                            android:stepSize="1.0" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/background_rounded_white">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:text="@string/forward"
+                            android:textColor="@color/hf_gray"
+                            android:textSize="15sp"
+                            android:drawableLeft="@drawable/icon_player_striker"/>
+
+                        <RatingBar
+                            style="@style/RatingBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:max="5"
+                            android:numStars="5"
+                            android:stepSize="1.0" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnNext"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/button_green_rounded_corners"
+                        android:text="@string/next"
+                        android:textColor="@color/white"
+                        android:textSize="35dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
