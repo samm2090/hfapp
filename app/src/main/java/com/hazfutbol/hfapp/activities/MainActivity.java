@@ -13,15 +13,15 @@ import com.hazfutbol.hfapp.R;
 
 public class MainActivity extends Activity {
 
-    Context myContext;
-    Button btnRegister;
-    Button btnFacebookRegister;
-    TextView lblLogin;
+    private Context myContext;
+    private Button btnRegister;
+    private Button btnFacebookRegister;
+    private TextView lblLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_register);
 
         myContext = getApplicationContext();
         btnRegister = (Button) findViewById(R.id.btnRegister);

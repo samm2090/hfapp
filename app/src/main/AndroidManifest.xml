@@ -27,6 +27,14 @@
         <activity
             android:name=".activities.MainActivity"
             android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".activities.MainMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -34,7 +42,17 @@
         </activity>
 
         <activity
-            android:name=".activities.RegisterActivity"
+            android:name=".activities.MyTeamActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".activities.MatchesActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".activities.TournamentsActivity"
             android:screenOrientation="portrait">
         </activity>
 

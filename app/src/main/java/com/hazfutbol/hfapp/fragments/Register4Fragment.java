@@ -1,6 +1,8 @@
 package com.hazfutbol.hfapp.fragments;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.hazfutbol.hfapp.R;
 
@@ -19,6 +22,7 @@ import com.hazfutbol.hfapp.R;
 public class Register4Fragment extends Fragment {
 
     Button btnUploadPhoto;
+    Button btnNext;
     ImageView profileImage;
 
     @Override
@@ -30,6 +34,7 @@ public class Register4Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_register4,container,false);
         btnUploadPhoto = (Button) view.findViewById(R.id.btnUploadPhoto);
+        btnNext = (Button) view.findViewById(R.id.btnNext);
         profileImage = (ImageView) view.findViewById(R.id.profile_image);
 
         btnUploadPhoto.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +52,22 @@ public class Register4Fragment extends Fragment {
 
                 startActivityForResult(chooserIntent, 1);
 
+            }
+        });
+
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bundle bundle = getArguments();
+
+                Register5Fragment page5 = new Register5Fragment();
+                page5.setArguments(bundle);
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_register4, page5);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 

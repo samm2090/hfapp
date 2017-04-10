@@ -10,16 +10,13 @@ import android.widget.Toast;
 import com.hazfutbol.hfapp.R;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
-/**
- * Created by ninosimeon on 06/02/17.
- */
 
 public class CarouselPresentationActivity extends Activity {
 
-    public static final int LAST_CAROUSEL_IMAGE = 3;
+    private static final int LAST_CAROUSEL_IMAGE = 3;
 
-    CarouselView carouselView;
-    int[] images = {R.drawable.carousel_presentation_1,
+    private CarouselView carouselView;
+    private int[] images = {R.drawable.carousel_presentation_1,
             R.drawable.carousel_presentation_2, R.drawable.carousel_presentation_3, R.drawable.carousel_presentation_4};
 
     @Override

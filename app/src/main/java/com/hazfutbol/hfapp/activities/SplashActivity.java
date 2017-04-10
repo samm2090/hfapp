@@ -8,14 +8,12 @@ import android.view.View;
 
 import com.hazfutbol.hfapp.R;
 
-/**
- * Created by ninosimeon on 06/02/17.
- */
+
 
 public class SplashActivity extends Activity {
 
-    Context myContext;
-    Thread splashThread;
+    private Context myContext;
+    private Thread splashThread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

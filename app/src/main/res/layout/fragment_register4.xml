@@ -234,7 +234,6 @@
                         android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
-                        android:layout_marginRight="30dp"
                         android:layout_marginTop="25dp"
                         android:background="@drawable/button_green_rounded_corners"
                         android:text="@string/next"

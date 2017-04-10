@@ -18,6 +18,7 @@ import android.widget.RadioGroup;
 
 import com.hazfutbol.hfapp.R;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -70,8 +71,6 @@ public class Register2Fragment extends Fragment {
                 }, actualYear, actualMonth, actualDay);
 
                 datePickerDialog.setTitle("Seleccionar fecha");
-                datePickerDialog.getDatePicker().setCalendarViewShown(false);
-                datePickerDialog.getDatePicker().setSpinnersShown(true);
                 datePickerDialog.show();
             }
         });
@@ -83,7 +82,12 @@ public class Register2Fragment extends Fragment {
                 int selectedRadioId = rbtnGender.getCheckedRadioButtonId();
                 RadioButton selectedRadioButton = (RadioButton) rbtnGender.findViewById(selectedRadioId);
 
-                Date birthDate = new Date(txtBirthDate.getText().toString());
+                Date birthDate = null;
+                try {
+                    birthDate = simpleDateFormat.parse(txtBirthDate.getText().toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 String gender = selectedRadioButton.getText().toString();
 
                 Bundle bundle = getArguments();
@@ -95,6 +99,7 @@ public class Register2Fragment extends Fragment {
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_register2, page3);
+                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });

@@ -59,6 +59,8 @@ public class User implements Parcelable {
         userUri = source.readString();
     }
 
+    public User(){}
+
     public static final Creator<User> CREATOR = new Creator<User>() {
         @Override
         public User[] newArray(int size) {

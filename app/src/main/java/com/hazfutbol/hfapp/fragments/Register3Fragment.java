@@ -57,6 +57,7 @@ public class Register3Fragment extends Fragment {
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_register3, page4);
+                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });

@@ -7,7 +7,10 @@
     <string name="create_user">Crear Usuario</string>
     <string name="next">></string>
     <string name="upload">Examinar</string>
-    
+    <string name="my_team">Mi Equipo</string>
+    <string name="matches">Pichangas</string>
+    <string name="tournaments">Torneos</string>
+    <string name="create_team">Crear Equipo</string>
     <!--Links-->
     <string name="login">Iniciar Sesión</string>
     
@@ -16,7 +19,11 @@
     <string name="register_question2">¿Cuándo naciste?</string>
     <string name="register_question3">¿Y tu correo electrónico?</string>
     <string name="register_question4">¿Cómo te llaman en la cancha?</string>
+    <string name="register_question5">¿Cúales son las características de tu juego?</string>
+    <string name="register_question5_option">Puedes escojer más de una</string>
+    <string name="register_question5_option2">Si no la encuentras, escríbela aquí</string>
     <string name="upload_your_photo">Sube tu foto</string>
+    <string name="welcome">Hola, <b>Fernando</b></string>
 
     <!--Forms-->
     <string name="name">Nombre</string>
@@ -35,4 +42,5 @@
     <string name="forward">Delantero</string>
     <string name="male">Masculino</string>
     <string name="female">Femenino</string>
+    <string name="skip"><u>Saltar</u></string>
 </resources>

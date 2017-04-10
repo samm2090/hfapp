@@ -12,16 +12,13 @@ import android.widget.EditText;
 import com.hazfutbol.hfapp.R;
 import com.hazfutbol.hfapp.fragments.Register2Fragment;
 
-/**
- * Created by ninosimeon on 08/02/17.
- */
 
 public class RegisterActivity extends Activity {
 
-    Context myContext;
-    EditText txtName;
-    EditText txtLastName;
-    Button btnNext;
+    private Context myContext;
+    private EditText txtName;
+    private EditText txtLastName;
+    private Button btnNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
