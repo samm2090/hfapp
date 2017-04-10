@@ -24,34 +24,36 @@ public abstract class TopBottomBarActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         bottomOptions = (BottomNavigationView) getLayoutInflater().inflate(R.layout.activity_top_bottom_bar, null).findViewById(R.id.bottom_options);
 
-        btnMyTeam = (Button) bottomOptions.getRootView().findViewById(R.id.btnMyTeam);
-        btnMatches = (Button) bottomOptions.getRootView().findViewById(R.id.btnMatches);
-        btnTournaments = (Button) bottomOptions.getRootView().findViewById(R.id.btnTournaments);
+//        btnMyTeam = (Button) bottomOptions.getRootView().findViewById(R.id.btnMyTeam);
+//        btnMatches = (Button) bottomOptions.getRootView().findViewById(R.id.btnMatches);
+//        btnTournaments = (Button) bottomOptions.getRootView().findViewById(R.id.btnTournaments);
         myContext = getApplicationContext();
 
-        btnMyTeam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(myContext, MyTeamActivity.class);
-                startActivity(intent);
-            }
-        });
+        bottomOptions.inflateMenu(R.menu.menu_options);
 
-        btnMatches.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(myContext, MatchesActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        btnTournaments.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(myContext, TournamentsActivity.class);
-                startActivity(intent);
-            }
-        });
+//        btnMyTeam.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(myContext, MyTeamActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        btnMatches.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(myContext, MatchesActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        btnTournaments.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(myContext, TournamentsActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 

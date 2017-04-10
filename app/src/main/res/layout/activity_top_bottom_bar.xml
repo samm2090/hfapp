@@ -16,56 +16,56 @@
         android:id="@+id/bottom_options"
         android:layout_alignParentBottom="true">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="3">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:weightSum="3">-->
 
-            <Button
-                android:id="@+id/btnMyTeam"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:drawableTint="@color/hf_blue"
-                android:drawableTop="@drawable/icon_heart"
-                android:paddingTop="5dp"
-                android:text="@string/my_team"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/hf_gray"
-                android:tint="@color/hf_blue" />
+            <!--<Button-->
+                <!--android:id="@+id/btnMyTeam"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="80dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="@color/white"-->
+                <!--android:drawableTint="@color/hf_blue"-->
+                <!--android:drawableTop="@drawable/icon_heart"-->
+                <!--android:paddingTop="5dp"-->
+                <!--android:text="@string/my_team"-->
+                <!--android:textAlignment="center"-->
+                <!--android:textAllCaps="false"-->
+                <!--android:textColor="@color/hf_gray"-->
+                <!--android:tint="@color/hf_blue" />-->
 
-            <Button
-                android:id="@+id/btnMatches"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:drawableTint="@color/hf_blue"
-                android:drawableTop="@drawable/icon_stadium"
-                android:paddingTop="5dp"
-                android:text="@string/matches"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/hf_gray"
-                android:tint="@color/hf_blue" />
+            <!--<Button-->
+                <!--android:id="@+id/btnMatches"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="80dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="@color/white"-->
+                <!--android:drawableTint="@color/hf_blue"-->
+                <!--android:drawableTop="@drawable/icon_stadium"-->
+                <!--android:paddingTop="5dp"-->
+                <!--android:text="@string/matches"-->
+                <!--android:textAlignment="center"-->
+                <!--android:textAllCaps="false"-->
+                <!--android:textColor="@color/hf_gray"-->
+                <!--android:tint="@color/hf_blue" />-->
 
-            <Button
-                android:id="@+id/btnTournaments"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:drawableTint="@color/hf_blue"
-                android:drawableTop="@drawable/icon_trophy"
-                android:paddingTop="5dp"
-                android:text="@string/tournaments"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/hf_gray"
-                android:tint="@color/hf_blue" />
-        </LinearLayout>
+            <!--<Button-->
+                <!--android:id="@+id/btnTournaments"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="80dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="@color/white"-->
+                <!--android:drawableTint="@color/hf_blue"-->
+                <!--android:drawableTop="@drawable/icon_trophy"-->
+                <!--android:paddingTop="5dp"-->
+                <!--android:text="@string/tournaments"-->
+                <!--android:textAlignment="center"-->
+                <!--android:textAllCaps="false"-->
+                <!--android:textColor="@color/hf_gray"-->
+                <!--android:tint="@color/hf_blue" />-->
+        <!--</LinearLayout>-->
 
     </android.support.design.widget.BottomNavigationView>
 </RelativeLayout>
