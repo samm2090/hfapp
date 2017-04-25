@@ -1,6 +1,6 @@
 package com.hazfutbol.hfapp.webServices;
 
-import com.hazfutbol.hfapp.models.PlayerSkill;
+import com.hazfutbol.hfapp.models.City;
 import com.hazfutbol.hfapp.utils.MyConstants;
 
 import org.json.JSONArray;
@@ -15,12 +15,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerSkillService {
+public class CityService {
 
-    public List<PlayerSkill> listPlayerSkills() throws IOException, JSONException {
+    public List<City> listCities() throws IOException, JSONException {
 
-        List<PlayerSkill> playerSkills = new ArrayList<PlayerSkill>();
-        String myURL = MyConstants.BASE_URL + "/user/player-skill?id=&format=json";
+        List<City> cities = new ArrayList<>();
+        String myURL = MyConstants.BASE_URL + "/user/city?id=15&id2=7&format=json";
         URL url = new URL(myURL);
         HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
         httpConnection.setRequestMethod("GET");
@@ -34,18 +34,17 @@ public class PlayerSkillService {
         }
 
         JSONObject jsonObject = new JSONObject(jsonString.toString());
-        JSONArray jsonArray = jsonObject.getJSONArray("skills");
+        JSONArray jsonArray = jsonObject.getJSONArray("cities");
 
         for (int i = 0; i < jsonArray.length(); i++) {
-            JSONObject skill = jsonArray.getJSONObject(i);
-            PlayerSkill playerSkill = new PlayerSkill();
-            playerSkill.setSkillId(skill.isNull("skill_id") ? null : skill.optInt("skill_id"));
-            playerSkill.setSkillName(skill.isNull("skill_name") ? null : skill.optString("skill_name"));
-            playerSkill.setSkillNameGroup(skill.isNull("skill_name_group") ? null : skill.optString("skill_name_group"));
-
-            playerSkills.add(playerSkill);
+            JSONObject jsonCity = jsonArray.getJSONObject(i);
+            City city = new City();
+            city.setCityId(jsonCity.isNull("city_id") ? null : jsonCity.optInt("city_id"));
+            city.setProvinceId(jsonCity.isNull("province_id") ? null : jsonCity.optInt("province_id"));
+            city.setCityName(jsonCity.isNull("city_name") ? null : jsonCity.optString("city_name"));
+            city.setStatus(jsonCity.isNull("status") ? null : jsonCity.optInt("status"));
+            cities.add(city);
         }
-
-        return  playerSkills;
+        return cities;
     }
 }

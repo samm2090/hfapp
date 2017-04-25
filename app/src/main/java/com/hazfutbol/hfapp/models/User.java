@@ -5,10 +5,6 @@ import android.os.Parcelable;
 
 import java.util.Date;
 
-/**
- * Created by ninosimeon on 08/02/17.
- */
-
 public class User implements Parcelable {
 
     private Integer userId;

@@ -23,20 +23,16 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * Created by ninosimeon on 09/02/17.
- */
-
 public class Register2Fragment extends Fragment {
-    EditText txtBirthDate;
-    RadioGroup rbtnGender;
-    Button btnNext;
-    SimpleDateFormat simpleDateFormat;
-    DatePickerDialog datePickerDialog;
-    Calendar calendar;
-    int actualYear;
-    int actualMonth;
-    int actualDay;
+    private EditText txtBirthDate;
+    private RadioGroup rbtnGender;
+    private Button btnNext;
+    private SimpleDateFormat simpleDateFormat;
+    private DatePickerDialog datePickerDialog;
+    private Calendar calendar;
+    private int actualYear;
+    private int actualMonth;
+    private int actualDay;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

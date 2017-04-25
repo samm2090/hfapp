@@ -31,11 +31,11 @@ import java.util.List;
 
 public class Register5Fragment extends Fragment {
 
-    Spinner spPlayerSkills;
-    TagView tagGroup;
-    int colorCounter;
-    List<PlayerSkill> playerSkills;
-    Button btnNext;
+    private Spinner spPlayerSkills;
+    private TagView tagGroup;
+    private int colorCounter;
+    private List<PlayerSkill> playerSkills;
+    private Button btnNext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -134,7 +134,7 @@ public class Register5Fragment extends Fragment {
 
             try {
                 PlayerSkillService playerSkillService = new PlayerSkillService();
-                playerSkills = playerSkillService.playerSkills();
+                playerSkills = playerSkillService.listPlayerSkills();
                 result = true;
 
             } catch (Exception e) {

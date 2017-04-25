@@ -21,9 +21,9 @@ import com.hazfutbol.hfapp.R;
 
 public class Register4Fragment extends Fragment {
 
-    Button btnUploadPhoto;
-    Button btnNext;
-    ImageView profileImage;
+    private Button btnUploadPhoto;
+    private Button btnNext;
+    private ImageView profileImage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class Register4Fragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_register4,container,false);
+        View view = inflater.inflate(R.layout.fragment_register4, container, false);
         btnUploadPhoto = (Button) view.findViewById(R.id.btnUploadPhoto);
         btnNext = (Button) view.findViewById(R.id.btnNext);
         profileImage = (ImageView) view.findViewById(R.id.profile_image);
@@ -48,7 +48,7 @@ public class Register4Fragment extends Fragment {
                 pickIntent.setType("image/*");
 
                 Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
-                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{pickIntent});
 
                 startActivityForResult(chooserIntent, 1);
 

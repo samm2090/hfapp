@@ -14,4 +14,8 @@
         <item name="android:minWidth">30dp</item>
     </style>
 
+    <style name="spinner_light_blue">
+        <item name="android:background">@drawable/dropdown_light_blue</item>
+    </style>
+
 </resources>

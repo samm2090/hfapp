@@ -1,71 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/activity_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <android.support.design.widget.BottomNavigationView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:id="@+id/bottom_options"
-        android:layout_alignParentBottom="true">
+        android:background="@color/hf_light_blue">
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:weightSum="3">-->
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/hf_light_blue">
 
-            <!--<Button-->
-                <!--android:id="@+id/btnMyTeam"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="80dp"-->
-                <!--android:layout_weight="1"-->
-                <!--android:background="@color/white"-->
-                <!--android:drawableTint="@color/hf_blue"-->
-                <!--android:drawableTop="@drawable/icon_heart"-->
-                <!--android:paddingTop="5dp"-->
-                <!--android:text="@string/my_team"-->
-                <!--android:textAlignment="center"-->
-                <!--android:textAllCaps="false"-->
-                <!--android:textColor="@color/hf_gray"-->
-                <!--android:tint="@color/hf_blue" />-->
+            <Button
+                android:id="@+id/btnMenuBurger"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/burger_menu" />
 
-            <!--<Button-->
-                <!--android:id="@+id/btnMatches"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="80dp"-->
-                <!--android:layout_weight="1"-->
-                <!--android:background="@color/white"-->
-                <!--android:drawableTint="@color/hf_blue"-->
-                <!--android:drawableTop="@drawable/icon_stadium"-->
-                <!--android:paddingTop="5dp"-->
-                <!--android:text="@string/matches"-->
-                <!--android:textAlignment="center"-->
-                <!--android:textAllCaps="false"-->
-                <!--android:textColor="@color/hf_gray"-->
-                <!--android:tint="@color/hf_blue" />-->
+            <TextView
+                android:id="@+id/lblToolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </android.support.v7.widget.Toolbar>
 
-            <!--<Button-->
-                <!--android:id="@+id/btnTournaments"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="80dp"-->
-                <!--android:layout_weight="1"-->
-                <!--android:background="@color/white"-->
-                <!--android:drawableTint="@color/hf_blue"-->
-                <!--android:drawableTop="@drawable/icon_trophy"-->
-                <!--android:paddingTop="5dp"-->
-                <!--android:text="@string/tournaments"-->
-                <!--android:textAlignment="center"-->
-                <!--android:textAllCaps="false"-->
-                <!--android:textColor="@color/hf_gray"-->
-                <!--android:tint="@color/hf_blue" />-->
-        <!--</LinearLayout>-->
+        <FrameLayout
+            android:id="@+id/activity_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    </android.support.design.widget.BottomNavigationView>
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/btnMyTeam"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_bottom_color"
+                android:drawableTint="@drawable/button_bottom_color_icon"
+                android:drawableTop="@drawable/icon_heart"
+                android:paddingTop="5dp"
+                android:text="@string/my_team"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@drawable/button_bottom_color_text" />
+
+            <Button
+                android:id="@+id/btnMatches"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_bottom_color"
+                android:drawableTint="@drawable/button_bottom_color_icon"
+                android:drawableTop="@drawable/icon_stadium"
+                android:paddingTop="5dp"
+                android:text="@string/matches"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@drawable/button_bottom_color_text" />
+
+            <Button
+                android:id="@+id/btnTournaments"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_bottom_color"
+                android:drawableTint="@drawable/button_bottom_color_icon"
+                android:drawableTop="@drawable/icon_trophy"
+                android:paddingTop="5dp"
+                android:text="@string/tournaments"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@drawable/button_bottom_color_text" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/drawerMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="En mantenimiento" />
+
+    </android.support.design.widget.NavigationView>
+
+
+</android.support.v4.widget.DrawerLayout>

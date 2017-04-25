@@ -3,10 +3,6 @@ package com.hazfutbol.hfapp.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by ninosimeon on 06/03/17.
- */
-
 public class PlayerSkill implements Parcelable {
 
     private Integer skillId;

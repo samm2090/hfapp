@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_my_team"
+    android:id="@+id/fragment_create_team"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,11 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="?actionBarSize"
         android:background="@color/hf_light_blue"
+        android:clickable="true"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,32 +23,36 @@
             android:paddingLeft="15dp"
             android:paddingRight="15dp">
 
-            <Button
-                android:id="@+id/btnCreateTeam"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/name_your_team"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/txtTeamName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_light_blue_rounded_corners"
-                android:text="@string/create_team"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_color_blue"
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="@string/join_team"
+                android:text="@string/team_city"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
-            <EditText
+            <Spinner
+                android:id="@+id/spCities"
+                style="@style/spinner_light_blue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/edittext_color_blue"
-                android:drawableRight="@drawable/search_icon"
-                android:hint="@string/search_team"
-                android:textSize="16sp" />
+                android:layout_marginTop="7dp" />
 
             <Button
                 android:id="@+id/btnNext"

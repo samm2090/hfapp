@@ -74,7 +74,7 @@
                         android:id="@+id/txtExtraSkill"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edittext_color"
+                        android:background="@drawable/edittext_color_green"
                         android:inputType="text" />
                 </LinearLayout>
 

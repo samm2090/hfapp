@@ -17,6 +17,8 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="transparent">#00ff0000</color>
+    <color name="hf_pink">#eb0a46</color>
+    <color name="hf_pink_alt">#b80634</color>
 
     <color name="tag_blue">#00719d</color>
     <color name="tag_pink">#ff408e</color>

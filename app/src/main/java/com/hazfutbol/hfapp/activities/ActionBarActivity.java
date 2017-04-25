@@ -31,6 +31,7 @@ public abstract class ActionBarActivity extends Activity {
         });
 
     }
+
     @Override
     public void setContentView(int layoutResID) {
         FrameLayout frameLayout = (FrameLayout) drawerLayout.findViewById(R.id.activity_content);

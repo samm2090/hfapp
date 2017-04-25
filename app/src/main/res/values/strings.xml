@@ -11,6 +11,7 @@
     <string name="matches">Pichangas</string>
     <string name="tournaments">Torneos</string>
     <string name="create_team">Crear Equipo</string>
+
     <!--Links-->
     <string name="login">Iniciar Sesión</string>
     
@@ -23,7 +24,27 @@
     <string name="register_question5_option">Puedes escojer más de una</string>
     <string name="register_question5_option2">Si no la encuentras, escríbela aquí</string>
     <string name="upload_your_photo">Sube tu foto</string>
+    <string name="join_team">O también puedes unirte a uno</string>
+    <string name="name_your_team">Ponle un nombre a tu equipo</string>
+    <string name="team_city">Distrito del equipo</string>
+    <string name="invite_teammates">Invita a tus patas a tu equipo</string>
+    <string name="suggestion">Sugerencia</string>
+    <string name="create_emblem">Crea tu escudo</string>
+    <string name="shape">Forma</string>
+    <string name="color">Color</string>
+    <string name="text">Texto</string>
+    <string name="detail">Detalle</string>
     <string name="welcome">Hola, <b>Fernando</b></string>
+
+    <!--Hints-->
+    <string name="search_team">Buscar equipo...</string>
+    <string name="search_player">Buscar jugador...</string>
+    <string name="write_message">Escribir mensaje...</string>
+
+    <!--Tabs-->
+    <string name="wall">Muro</string>
+    <string name="players">Jugadores</string>
+    <string name="photos">Fotos</string>
 
     <!--Forms-->
     <string name="name">Nombre</string>

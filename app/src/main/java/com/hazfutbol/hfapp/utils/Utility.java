@@ -1,5 +1,7 @@
 package com.hazfutbol.hfapp.utils;
 
+import android.content.Context;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
@@ -22,5 +24,12 @@ public final class Utility {
             sb.append(key + "=" + value);
         }
         return sb.toString();
+    }
+
+    public static int getResourceIdByName(Context context, String type, String name) {
+        int resourceId = context.getResources().getIdentifier(name, type,
+                context.getPackageName());
+
+        return resourceId;
     }
 }

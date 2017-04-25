@@ -18,23 +18,18 @@ import com.hazfutbol.hfapp.R;
 
 import java.net.ConnectException;
 
-/**
- * Created by ninosimeon on 09/02/17.
- */
-
 public class Register3Fragment extends Fragment {
 
-    Context myContext;
-    EditText txtEmail;
-    EditText txtPassword;
-    Button btnNext;
+    private Context myContext;
+    private EditText txtEmail;
+    private EditText txtPassword;
+    private Button btnNext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         myContext = getActivity().getApplicationContext();
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,7 +43,7 @@ public class Register3Fragment extends Fragment {
             public void onClick(View v) {
                 String name = getArguments().getString("name");
                 String lastName = getArguments().getString("lastName");
-                Toast.makeText(myContext, name + lastName,Toast.LENGTH_LONG).show();
+                Toast.makeText(myContext, name + lastName, Toast.LENGTH_LONG).show();
 
                 Bundle bundle = getArguments();
 
