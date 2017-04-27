@@ -1,12 +1,12 @@
 package com.hazfutbol.hfapp.activities;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
@@ -38,7 +38,7 @@ public class MyTeamActivity extends TopBottomBarActivity {
 
         Drawable iconHeart = ContextCompat.getDrawable(myContext, R.drawable.icon_heart);
         iconHeart.setColorFilter(ContextCompat.getColor(myContext, R.color.white), PorterDuff.Mode.SRC_ATOP);
-        iconHeart.setBounds(0,0,60,60);
+        iconHeart.setBounds(0,0,70,70);
 
         btnMyTeam.setOnClickListener(null);
         btnMyTeam.setBackgroundColor(ContextCompat.getColor(myContext, R.color.hf_pink));
@@ -50,7 +50,9 @@ public class MyTeamActivity extends TopBottomBarActivity {
             public void onClick(View v) {
                 CreateTeamFragment createTeamFragment = new CreateTeamFragment();
 
-                FragmentManager fragmentManager = getFragmentManager();
+                v.setVisibility(View.GONE);
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.activity_my_team, createTeamFragment);
                 fragmentTransaction.addToBackStack(null);

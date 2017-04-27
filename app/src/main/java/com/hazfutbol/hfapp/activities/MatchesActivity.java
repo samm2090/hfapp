@@ -36,7 +36,7 @@ public class MatchesActivity extends TopBottomBarActivity {
 
         Drawable iconStadium = ContextCompat.getDrawable(myContext, R.drawable.icon_stadium);
         iconStadium.setColorFilter(ContextCompat.getColor(myContext, R.color.white), PorterDuff.Mode.SRC_ATOP);
-        iconStadium.setBounds(0,0,60,60);
+        iconStadium.setBounds(0,0,70,70);
 
         btnMatches.setCompoundDrawables(null,iconStadium,null,null);
     }

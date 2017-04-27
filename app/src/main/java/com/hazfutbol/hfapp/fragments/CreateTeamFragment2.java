@@ -1,11 +1,10 @@
 package com.hazfutbol.hfapp.fragments;
 
-import android.app.Fragment;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +18,9 @@ import com.hazfutbol.hfapp.utils.Utility;
 public class CreateTeamFragment2 extends Fragment {
 
     private Context myContext;
-    private Resources resources;
     private ImageView imgShapeSelected;
     private ImageView imgEmblem;
+    private Button btnNext;
     private Button btnNextShape;
     private Button btnPreviousShape;
     private Button btnPreviousShapeColor;
@@ -39,16 +38,19 @@ public class CreateTeamFragment2 extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_create_team2, container, false);
 
         myContext = getActivity().getApplicationContext();
-        resources = myContext.getResources();
         imgShapeSelected = (ImageView) view.findViewById(R.id.imgShape3);
         imgEmblem = (ImageView) view.findViewById(R.id.imgEmblem);
         btnNextShape = (Button) view.findViewById(R.id.btnNextShape);
         btnPreviousShape = (Button) view.findViewById(R.id.btnPreviousShape);
+        btnNextShapeColor = (Button) view.findViewById(R.id.btnNextShapeColor);
+        btnPreviousShapeColor = (Button) view.findViewById(R.id.btnPreviousShapeColor);
+        btnNext = (Button) view.findViewById(R.id.btnNext);
         imgCurrentShape = 3;
         imgCurrentShapeColor = 3;
 
         imgShapeSelected.setBackgroundResource(R.drawable.background_white_border_green);
         imgEmblem.setImageResource(R.drawable.emblem_shape_3);
+
 
         btnPreviousShape.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +90,7 @@ public class CreateTeamFragment2 extends Fragment {
         btnPreviousShapeColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imgEmblem.setimageti;
+
 
             }
         });
@@ -97,6 +99,19 @@ public class CreateTeamFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
 
+            }
+        });
+
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CreateTeamFragment3 createTeamFragment3 = new CreateTeamFragment3();
+
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), createTeamFragment3);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 

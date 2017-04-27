@@ -36,7 +36,7 @@ public class TournamentsActivity extends TopBottomBarActivity {
 
         Drawable iconTrophy = ContextCompat.getDrawable(myContext, R.drawable.icon_trophy);
         iconTrophy.setColorFilter(ContextCompat.getColor(myContext, R.color.white), PorterDuff.Mode.SRC_ATOP);
-        iconTrophy.setBounds(0, 0, 60, 60);
+        iconTrophy.setBounds(0, 0, 70, 70);
 
         btnTournaments.setCompoundDrawables(null, iconTrophy, null, null);
     }

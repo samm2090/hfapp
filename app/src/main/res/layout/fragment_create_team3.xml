@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragment_create_team"
+    android:id="@+id/fragment_create_team3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -8,8 +8,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?actionBarSize"
         android:layout_marginBottom="80dp"
+        android:layout_marginTop="?actionBarSize"
         android:background="@color/hf_light_blue"
         android:clickable="true"
         android:orientation="vertical">
@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="@string/name_your_team"
+                android:text="@string/invite_teammates"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -38,22 +38,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittext_color_blue"
+                android:drawableRight="@drawable/search_icon"
+                android:hint="@string/search_player"
                 android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="@string/team_city"
+                android:text="@string/suggestion"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
-
-            <Spinner
-                android:id="@+id/spCities"
-                style="@style/spinner_light_blue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp" />
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/btnNext"

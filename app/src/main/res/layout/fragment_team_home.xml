@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp"
+        android:layout_marginTop="?actionBarSize"
+        android:orientation="vertical"
+        android:clickable="true">
+
+        <include layout="@layout/item_list_team" />
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabTeamHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="6dp"
+            android:background="@color/hf_dark_blue"/>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pagTeamHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/hf_dark_blue"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

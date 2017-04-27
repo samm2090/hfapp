@@ -1,10 +1,10 @@
 package com.hazfutbol.hfapp.fragments;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +50,7 @@ public class CreateTeamFragment extends Fragment {
 
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_create_team, createTeamFragment2);
+                fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), createTeamFragment2);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
