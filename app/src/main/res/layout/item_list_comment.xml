@@ -8,47 +8,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="3"
+        android:weightSum="5"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:background="@color/hf_light_blue_alt">
+        android:background="@drawable/background_rounded_light_blue">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgEmblem"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@color/black"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/default_profile"
             android:layout_weight="1"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="4"
+            android:paddingTop="2dp"
             android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mi equipo"
-                android:textStyle="bold"
-                android:textColor="@color/hf_gray"
-                android:textSize="18sp"/>
+                android:text="Javicho"
+                android:textColor="@color/hf_blue"
+                android:textSize="14sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="50 jugadores"
+                android:text="Hola reserven cancha ps"
                 android:textColor="@color/hf_gray"
-                android:textSize="18sp"/>
+                android:textSize="14sp"/>
 
-            <RatingBar
-                style="@style/RatingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:max="5"
-                android:numStars="5"
-                android:stepSize="1.0"
-                android:isIndicator="true"/>
 
         </LinearLayout>
 

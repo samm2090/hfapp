@@ -13,12 +13,13 @@
         android:paddingBottom="10dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:layout_marginTop="2dp"
         android:background="@color/hf_light_blue_alt">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgEmblem"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@color/black"
             android:layout_weight="1"/>
 
@@ -33,13 +34,13 @@
                 android:text="Mi equipo"
                 android:textStyle="bold"
                 android:textColor="@color/hf_gray"
-                android:textSize="18sp"/>
+                android:textSize="16sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="50 jugadores"
                 android:textColor="@color/hf_gray"
-                android:textSize="18sp"/>
+                android:textSize="16sp"/>
 
             <RatingBar
                 style="@style/RatingBar"

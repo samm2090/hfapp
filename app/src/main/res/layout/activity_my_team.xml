@@ -12,9 +12,18 @@
         android:background="@color/hf_light_blue"
         android:orientation="vertical">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></LinearLayout>
+            android:layout_height="100dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvMyTeams"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+        </ScrollView>
+
 
         <LinearLayout
             android:layout_width="match_parent"

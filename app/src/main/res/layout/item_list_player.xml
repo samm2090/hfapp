@@ -7,40 +7,50 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/hf_dark_blue_alt"
         android:orientation="horizontal"
-        android:weightSum="5"
-        android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:background="@drawable/background_rounded_light_blue">
+        android:paddingTop="10dp"
+        android:weightSum="5">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgEmblem"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/default_profile"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:src="@drawable/default_profile" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:paddingTop="2dp"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Javicho"
-                android:textColor="@color/hf_blue"
-                android:textSize="14sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hola reserven cancha ps"
-                android:textColor="@color/hf_gray"
-                android:textSize="14sp"/>
+            android:orientation="vertical"
+            android:paddingTop="2dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guillermo Muñoz"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delantero"
+                android:textColor="@color/hf_blue"
+                android:textSize="14sp" />
+
+            <RatingBar
+                style="@style/RatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="true"
+                android:max="5"
+                android:numStars="5"
+                android:stepSize="1.0" />
 
         </LinearLayout>
 

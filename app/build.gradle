@@ -31,6 +31,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:recyclerview-v7:25.1.0'
     compile 'com.synnapps:carouselview:0.0.10'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.github.Cutta:TagView:1.3'

@@ -11,10 +11,11 @@
     <string name="matches">Pichangas</string>
     <string name="tournaments">Torneos</string>
     <string name="create_team">Crear Equipo</string>
+    <string name="add_new_player">Agregar otro jugador</string>
 
     <!--Links-->
     <string name="login">Iniciar Sesión</string>
-    
+
     <!--TextViews-->
     <string name="register_question1">¿Cómo te llamas?</string>
     <string name="register_question2">¿Cuándo naciste?</string>
@@ -34,6 +35,8 @@
     <string name="color">Color</string>
     <string name="text">Texto</string>
     <string name="detail">Detalle</string>
+    <string name="team_message_rule">Los mensajes enviados los verán solo
+        los miembros de tu equipo</string>
     <string name="welcome">Hola, <b>Fernando</b></string>
 
     <!--Hints-->

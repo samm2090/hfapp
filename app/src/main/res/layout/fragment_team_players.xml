@@ -4,10 +4,40 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_marginTop="?actionBarSize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/players"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/hf_dark_blue"
+        android:orientation="vertical">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp">
+
+            <include layout="@layout/item_list_player" />
+
+
+        </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_light_blue_rounded_corners"
+                android:text="@string/add_new_player"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 </RelativeLayout>
