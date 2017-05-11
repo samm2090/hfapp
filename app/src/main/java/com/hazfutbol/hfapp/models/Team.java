@@ -5,6 +5,9 @@ import android.os.Parcelable;
 
 import java.util.Date;
 
+/**
+ * Represents a hf_group
+ */
 public class Team implements Parcelable {
 
     private Integer groupId;
@@ -110,43 +113,43 @@ public class Team implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(groupId);
-        dest.writeInt(userId);
-        dest.writeInt(complexId);
+        dest.writeValue(groupId);
+        dest.writeValue(userId);
+        dest.writeValue(complexId);
         dest.writeString(groupName);
         dest.writeString(groupDescription);
-        dest.writeInt(groupCategoryId);
-        dest.writeInt(groupSearch);
-        dest.writeInt(groupInvite);
-        dest.writeInt(groupApproval);
+        dest.writeValue(groupCategoryId);
+        dest.writeValue(groupSearch);
+        dest.writeValue(groupInvite);
+        dest.writeValue(groupApproval);
         dest.writeString(groupPhoto);
         dest.writeSerializable(groupCreationDate);
         dest.writeSerializable(groupModifiedDate);
-        dest.writeInt(groupMemberCount);
-        dest.writeInt(groupViewCount);
+        dest.writeValue(groupMemberCount);
+        dest.writeValue(groupViewCount);
         dest.writeString(groupShortName);
-        dest.writeInt(sexId);
-        dest.writeInt(footballCategoryId);
-        dest.writeInt(footballTypeId);
-        dest.writeInt(fieldTypeId);
-        dest.writeInt(provenanceTypeId);
+        dest.writeValue(sexId);
+        dest.writeValue(footballCategoryId);
+        dest.writeValue(footballTypeId);
+        dest.writeValue(fieldTypeId);
+        dest.writeValue(provenanceTypeId);
         dest.writeString(groupDescriptionProvenance);
-        dest.writeInt(groupChallengeTeam);
-        dest.writeInt(groupInfoTourney);
-        dest.writeInt(groupNewRequestPlayer);
-        dest.writeInt(groupCantWin);
-        dest.writeInt(groupCantTie);
-        dest.writeInt(groupCantLose);
-        dest.writeInt(groupFrequencyGameId);
+        dest.writeValue(groupChallengeTeam);
+        dest.writeValue(groupInfoTourney);
+        dest.writeValue(groupNewRequestPlayer);
+        dest.writeValue(groupCantWin);
+        dest.writeValue(groupCantTie);
+        dest.writeValue(groupCantLose);
+        dest.writeValue(groupFrequencyGameId);
         dest.writeString(groupPreferredTime);
-        dest.writeInt(locationAreaId);
-        dest.writeInt(communityCategoryId);
-        dest.writeInt(communityId);
-        dest.writeInt(groupFlag);
-        dest.writeInt(locality);
-        dest.writeInt(areaAccess);
+        dest.writeValue(locationAreaId);
+        dest.writeValue(communityCategoryId);
+        dest.writeValue(communityId);
+        dest.writeValue(groupFlag);
+        dest.writeValue(locality);
+        dest.writeValue(areaAccess);
         dest.writeString(groupTrajectory);
-        dest.writeInt(photoId);
+        dest.writeValue(photoId);
         dest.writeString(cGroupIsClosed);
     }
 

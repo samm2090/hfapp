@@ -37,7 +37,7 @@
     <string name="detail">Detalle</string>
     <string name="team_message_rule">Los mensajes enviados los verán solo
         los miembros de tu equipo</string>
-    <string name="welcome">Hola, <b>Fernando</b></string>
+    <string name="forgot_password">¿Olvidaste tu contraseña?</string>
 
     <!--Hints-->
     <string name="search_team">Buscar equipo...</string>
@@ -67,4 +67,19 @@
     <string name="male">Masculino</string>
     <string name="female">Femenino</string>
     <string name="skip"><u>Saltar</u></string>
+    <string name="user">Usuario</string>
+    <string name="select_date">Seleccionar fecha</string>
+
+    <!--Toast messages-->
+    <string name="user_register_incomplete1">Debe ingresar nombre y apellidos</string>
+    <string name="user_register_incomplete2">Debe ingresar fecha de nacimiento</string>
+    <string name="user_register_incomplete3">Debe ingresar email y contraseña</string>
+
+    <!--Validation error tooltip-->
+    <string name="name_mandatory">El nombre es obligatorio</string>
+    <string name="last_name_mandatory">El apellido es obligatorio</string>
+    <string name="birth_date_mandatory">La fecha de nacimiento es obligatoria</string>
+    <string name="email_mandatory">El email es obligatorio</string>
+    <string name="password_mandatory">La contraseña es obligatoria</string>
+
 </resources>

@@ -13,10 +13,12 @@ import com.hazfutbol.hfapp.R;
 
 public class MatchesActivity extends TopBottomBarActivity {
 
-    Button btnMatches;
-    Context myContext;
-    TextView lblToolbarTitle;
-    Resources resources;
+    private Button btnMatches;
+    private Button btnMyTeam;
+    private Button tbnTournaments;
+    private Context myContext;
+    private TextView lblToolbarTitle;
+    private Resources resources;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,8 @@ public class MatchesActivity extends TopBottomBarActivity {
         myContext = getApplicationContext();
         resources = getResources();
         btnMatches = (Button) findViewById(R.id.btnMatches);
+        btnMyTeam = (Button) findViewById(R.id.btnMyTeam);
+        tbnTournaments = (Button) findViewById(R.id.btnTournaments);
         lblToolbarTitle = (TextView) findViewById(R.id.lblToolbarTitle);
 
         lblToolbarTitle.setText(resources.getText(R.string.matches));

@@ -3,6 +3,9 @@ package com.hazfutbol.hfapp.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ * Represents a hf_city
+ */
 public class City implements Parcelable {
 
     private Integer cityId;
@@ -32,10 +35,10 @@ public class City implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(cityId);
-        dest.writeInt(provinceId);
+        dest.writeValue(cityId);
+        dest.writeValue(provinceId);
         dest.writeString(cityName);
-        dest.writeInt(status);
+        dest.writeValue(status);
     }
 
     public static final Creator<City> CREATOR = new Creator<City>() {

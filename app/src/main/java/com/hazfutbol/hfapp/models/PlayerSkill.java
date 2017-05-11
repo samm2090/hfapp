@@ -3,6 +3,9 @@ package com.hazfutbol.hfapp.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ * Represents a hf_player_skill
+ */
 public class PlayerSkill implements Parcelable {
 
     private Integer skillId;
@@ -30,7 +33,7 @@ public class PlayerSkill implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(skillId);
+        dest.writeValue(skillId);
         dest.writeString(skillName);
         dest.writeString(skillNameGroup);
     }

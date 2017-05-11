@@ -7,49 +7,54 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="@color/hf_light_blue_alt"
         android:orientation="horizontal"
-        android:weightSum="3"
-        android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:layout_marginTop="2dp"
-        android:background="@color/hf_light_blue_alt">
+        android:paddingTop="10dp"
+        android:weightSum="3">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgEmblem"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@color/black"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:src="@color/black" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:orientation="vertical">
+
             <TextView
+                android:id="@+id/lblTeamName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mi equipo"
-                android:textStyle="bold"
                 android:textColor="@color/hf_gray"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
             <TextView
+                android:id="@+id/lblNumberOfMembers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="50 jugadores"
                 android:textColor="@color/hf_gray"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <RatingBar
+                android:id="@+id/teamRatingBar"
                 style="@style/RatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:isIndicator="true"
                 android:max="5"
                 android:numStars="5"
-                android:stepSize="1.0"
-                android:isIndicator="true"/>
+                android:stepSize="1.0" />
 
         </LinearLayout>
 

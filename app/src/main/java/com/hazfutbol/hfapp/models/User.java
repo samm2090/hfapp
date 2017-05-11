@@ -5,6 +5,9 @@ import android.os.Parcelable;
 
 import java.util.Date;
 
+/**
+ * Represents a hf_user
+ */
 public class User implements Parcelable {
 
     private Integer userId;
@@ -71,27 +74,27 @@ public class User implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(aclRolId);
-        dest.writeInt(affiliationTypeId);
-        dest.writeInt(userActive);
-        dest.writeInt(userActiveForgot);
+        dest.writeValue(aclRolId);
+        dest.writeValue(affiliationTypeId);
+        dest.writeValue(userActive);
+        dest.writeValue(userActiveForgot);
         dest.writeString(userAfChangedPassword);
         dest.writeString(userCode);
-        dest.writeInt(userCommunity);
+        dest.writeValue(userCommunity);
         dest.writeString(userEmail);
-        dest.writeInt(userId);
+        dest.writeValue(userId);
         dest.writeString(userLastName);
         dest.writeString(userName);
         dest.writeString(userPassword);
         dest.writeString(userRegisterAllFeatures);
-        dest.writeInt(userRegisterById);
+        dest.writeValue(userRegisterById);
         dest.writeSerializable(userRegisterDate);
         dest.writeString(userRegisterIp);
-        dest.writeInt(userStatus);
+        dest.writeValue(userStatus);
         dest.writeString(userToken);
         dest.writeString(userTokenForgot);
         dest.writeString(userTokenInactive);
-        dest.writeInt(userTypeId);
+        dest.writeValue(userTypeId);
         dest.writeString(userUri);
     }
 

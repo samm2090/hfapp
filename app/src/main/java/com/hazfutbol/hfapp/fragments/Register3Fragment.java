@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,12 +16,18 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.hazfutbol.hfapp.R;
+import com.hazfutbol.hfapp.models.User;
+import com.hazfutbol.hfapp.utils.MyConstants;
 
 import java.net.ConnectException;
 
+/**
+ * User registration third view
+ */
 public class Register3Fragment extends Fragment {
 
     private Context myContext;
+    private Resources myResources;
     private EditText txtEmail;
     private EditText txtPassword;
     private Button btnNext;
@@ -28,12 +35,14 @@ public class Register3Fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        myContext = getActivity().getApplicationContext();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_register3, container, false);
+
+        myContext = getActivity().getApplicationContext();
+        myResources = myContext.getResources();
         txtEmail = (EditText) view.findViewById(R.id.txtEmail);
         txtPassword = (EditText) view.findViewById(R.id.txtPassword);
         btnNext = (Button) view.findViewById(R.id.btnNext);
@@ -41,19 +50,33 @@ public class Register3Fragment extends Fragment {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = getArguments().getString("name");
-                String lastName = getArguments().getString("lastName");
-                Toast.makeText(myContext, name + lastName, Toast.LENGTH_LONG).show();
+                String email = txtEmail.getText().toString();
+                String password = txtPassword.getText().toString();
 
-                Bundle bundle = getArguments();
+                if (!(email.isEmpty() || password.isEmpty())) {
+                    Bundle bundle = getArguments();
+                    User user = bundle.getParcelable(MyConstants.USER);
+                    user.setUserEmail(email);
+                    user.setUserPassword(password);
+                    bundle.putParcelable(MyConstants.USER, user);
 
-                Register4Fragment page4 = new Register4Fragment();
-                page4.setArguments(bundle);
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_register3, page4);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                    Register4Fragment page4 = new Register4Fragment();
+                    page4.setArguments(bundle);
+                    FragmentManager fragmentManager = getFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.fragment_register3, page4);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                } else {
+                    if (email.isEmpty()) {
+                        txtEmail.setError(myResources.getString(R.string.email_mandatory));
+                    }
+                    if (password.isEmpty()) {
+                        txtPassword.setError(myResources.getString(R.string.password_mandatory));
+                    }
+                    Toast.makeText(myContext, myResources.getString(R.string
+                            .user_register_incomplete3), Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
