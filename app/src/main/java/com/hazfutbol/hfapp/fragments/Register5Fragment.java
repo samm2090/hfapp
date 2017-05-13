@@ -1,16 +1,25 @@
 package com.hazfutbol.hfapp.fragments;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cunoraz.tagview.Tag;
@@ -18,6 +27,8 @@ import com.cunoraz.tagview.TagView;
 import com.hazfutbol.hfapp.R;
 import com.hazfutbol.hfapp.models.PlayerSkill;
 import com.hazfutbol.hfapp.models.User;
+import com.hazfutbol.hfapp.utils.MyConstants;
+import com.hazfutbol.hfapp.utils.Utilities;
 import com.hazfutbol.hfapp.webServices.PlayerSkillService;
 import com.hazfutbol.hfapp.webServices.UserService;
 
@@ -26,15 +37,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ninosimeon on 09/02/17.
+ * User registration fifth view
  */
-
 public class Register5Fragment extends Fragment {
 
+    private Context myContext;
+    private Resources myResources;
     private Spinner spPlayerSkills;
     private TagView tagGroup;
+    private EditText txtExtraSkill;
+    private TextView lblSkip;
     private int colorCounter;
-    private List<PlayerSkill> playerSkills;
+    private ArrayList<PlayerSkill> playerSkills;
     private Button btnNext;
 
     @Override
@@ -45,70 +59,80 @@ public class Register5Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_register5, container, false);
-        colorCounter = 1;
+
+        myContext = getActivity().getApplicationContext();
+        myResources = myContext.getResources();
         btnNext = (Button) view.findViewById(R.id.btnNext);
         spPlayerSkills = (Spinner) view.findViewById(R.id.spPlayerSkills);
         tagGroup = (TagView) view.findViewById(R.id.tagGroupPlayerSkills);
+        txtExtraSkill = (EditText) view.findViewById(R.id.txtExtraSkill);
+        lblSkip = (TextView) view.findViewById(R.id.lblSkip);
         playerSkills = new ArrayList<PlayerSkill>();
+        colorCounter = 0;
 
         new Register5Fragment.PlayerSkillsAsynkTask().execute();
+
+        lblSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = getArguments();
+                nextFragment(bundle);
+            }
+        });
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Bundle bundle = getArguments();
+                bundle.putParcelableArrayList(MyConstants.PLAYER_SKILLS, playerSkills);
+                nextFragment(bundle);
             }
         });
 
         spPlayerSkills.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                PlayerSkill playerSkill = (PlayerSkill) spPlayerSkills.getSelectedItem();
-                Tag tag = new Tag(playerSkill.getSkillName());
-                tag.isDeletable = true;
+                if (colorCounter == 0) {
+                    colorCounter = 1;
+                } else {
+                    PlayerSkill playerSkill = (PlayerSkill) spPlayerSkills.getSelectedItem();
+                    Tag tag = new Tag(playerSkill.getSkillName());
+                    tag.isDeletable = true;
 
-                switch (colorCounter) {
-                    case 1:
-                        tag.layoutColor = Color.parseColor("#00719d");
-                        colorCounter += 1;
-                        break;
-                    case 2:
-                        tag.layoutColor = Color.parseColor("#ff408e");
-                        colorCounter += 1;
-                        break;
-                    case 3:
-                        tag.layoutColor = Color.parseColor("#ff9700");
-                        colorCounter += 1;
-                        break;
-                    case 4:
-                        tag.layoutColor = Color.parseColor("#009a54");
-                        colorCounter += 1;
-                        break;
-                    case 5:
-                        tag.layoutColor = Color.parseColor("#c640af");
-                        colorCounter += 1;
-                        break;
-                    case 6:
-                        tag.layoutColor = Color.parseColor("#ff4d5d");
-                        colorCounter += 1;
-                        break;
-                    case 7:
-                        tag.layoutColor = Color.parseColor("#9552bc");
-                        colorCounter += 1;
-                        break;
-                    default:
-                        tag.layoutColor = Color.parseColor("#00acd2");
-                        colorCounter = 1;
-                        break;
+                    tag.layoutColor = getTagColor(colorCounter);
+                    playerSkills.add(playerSkill);
+                    tagGroup.addTag(tag);
+                    colorCounter += 1;
                 }
-                playerSkills.add(playerSkill);
-                tagGroup.addTag(tag);
             }
-
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+        txtExtraSkill.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+
+                    PlayerSkill playerSkill = new PlayerSkill();
+                    playerSkill.setSkillName(txtExtraSkill.getText().toString());
+                    playerSkills.add(playerSkill);
+
+                    Tag tag = new Tag(playerSkill.getSkillName());
+                    tag.layoutColor = getTagColor(colorCounter);
+                    tag.isDeletable = true;
+                    playerSkills.add(playerSkill);
+                    tagGroup.addTag(tag);
+                    colorCounter += 1;
+                    txtExtraSkill.setText("");
+                    Utilities.hideSoftKeyboard(getActivity());
+
+                    return true;
+                }
+                return false;
             }
         });
 
@@ -121,6 +145,49 @@ public class Register5Fragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void nextFragment(Bundle bundle) {
+        Register6Fragment page5 = new Register6Fragment();
+        page5.setArguments(bundle);
+
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_register5, page5);
+        fragmentTransaction.addToBackStack(null);
+
+        fragmentTransaction.commit();
+    }
+
+    private int getTagColor(int colorCounter) {
+        int color;
+        switch (colorCounter) {
+            case 1:
+                color = ContextCompat.getColor(myContext, R.color.tag_blue);
+                break;
+            case 2:
+                color = ContextCompat.getColor(myContext, R.color.tag_pink);
+                break;
+            case 3:
+                color = ContextCompat.getColor(myContext, R.color.tag_orange);
+                break;
+            case 4:
+                color = ContextCompat.getColor(myContext, R.color.tag_green);
+                break;
+            case 5:
+                color = ContextCompat.getColor(myContext, R.color.tag_purple);
+                break;
+            case 6:
+                color = ContextCompat.getColor(myContext, R.color.tag_red);
+                break;
+            case 7:
+                color = ContextCompat.getColor(myContext, R.color.tag_light_blue);
+                break;
+            default:
+                color = ContextCompat.getColor(myContext, R.color.tag_violet);
+                break;
+        }
+        return color;
     }
 
     private class PlayerSkillsAsynkTask extends AsyncTask<Void, String, Boolean> {
@@ -140,7 +207,6 @@ public class Register5Fragment extends Fragment {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
             return result;
         }
 
@@ -148,7 +214,8 @@ public class Register5Fragment extends Fragment {
         protected void onPostExecute(Boolean result) {
             super.onPostExecute(result);
             if (result) {
-                ArrayAdapter<PlayerSkill> adapter = new ArrayAdapter<PlayerSkill>(getContext(), android.R.layout.simple_spinner_dropdown_item, playerSkills);
+                ArrayAdapter<PlayerSkill> adapter = new ArrayAdapter<PlayerSkill>(getContext(),
+                        R.layout.spinner_item_green, playerSkills);
 
                 spPlayerSkills.setAdapter(adapter);
             } else {
@@ -156,34 +223,5 @@ public class Register5Fragment extends Fragment {
             }
         }
     }
-
-    private class UserRegisterAsyncTask extends AsyncTask<User, String, Boolean> {
-
-        @Override
-        protected Boolean doInBackground(User... params) {
-
-            boolean result = false;
-
-            UserService userService = new UserService();
-            try {
-                userService.insertUser(params[0]);
-                result = true;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            return result;
-        }
-
-        @Override
-        protected void onPostExecute(Boolean result) {
-            if (result) {
-
-
-            } else {
-            }
-        }
-    }
-
 
 }

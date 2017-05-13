@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.hazfutbol.hfapp.R;
 import com.hazfutbol.hfapp.models.User;
 import com.hazfutbol.hfapp.utils.MyConstants;
+import com.hazfutbol.hfapp.utils.Utilities;
 
 import java.net.ConnectException;
 
@@ -66,6 +67,8 @@ public class Register3Fragment extends Fragment {
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_register3, page4);
                     fragmentTransaction.addToBackStack(null);
+
+                    Utilities.hideSoftKeyboard(getActivity());
                     fragmentTransaction.commit();
                 } else {
                     if (email.isEmpty()) {

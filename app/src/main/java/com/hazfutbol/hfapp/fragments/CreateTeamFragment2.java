@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.hazfutbol.hfapp.R;
-import com.hazfutbol.hfapp.utils.Utility;
+import com.hazfutbol.hfapp.utils.Utilities;
 
 
 public class CreateTeamFragment2 extends Fragment {
@@ -55,16 +55,16 @@ public class CreateTeamFragment2 extends Fragment {
         btnPreviousShape.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int imageViewId = Utility.getResourceIdByName(myContext, "id", "imgShape" + imgCurrentShape);
+                int imageViewId = Utilities.getResourceIdByName(myContext, "id", "imgShape" + imgCurrentShape);
                 imgShapeSelected = (ImageView) view.findViewById(imageViewId);
                 imgShapeSelected.setBackgroundResource(R.drawable.background_white_border_black);
 
                 imgCurrentShape--;
 
-                int imgShapeId = Utility.
+                int imgShapeId = Utilities.
                         getResourceIdByName(myContext, "drawable", "emblem_shape_" + imgCurrentShape);
                 imgEmblem.setImageResource(imgShapeId);
-                imageViewId = Utility.getResourceIdByName(myContext, "id", "imgShape" + imgCurrentShape);
+                imageViewId = Utilities.getResourceIdByName(myContext, "id", "imgShape" + imgCurrentShape);
                 imgShapeSelected = (ImageView) view.findViewById(imageViewId);
                 imgShapeSelected.setBackgroundResource(R.drawable.background_white_border_green);
             }
@@ -73,15 +73,15 @@ public class CreateTeamFragment2 extends Fragment {
         btnNextShape.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int imageViewId = Utility.getResourceIdByName(myContext, "id", "imgShape" + imgCurrentShape);
+                int imageViewId = Utilities.getResourceIdByName(myContext, "id", "imgShape" + imgCurrentShape);
                 imgShapeSelected = (ImageView) view.findViewById(imageViewId);
                 imgShapeSelected.setBackgroundResource(R.drawable.background_white_border_black);
                 imgCurrentShape++;
 
-                int imgShapeId = Utility.
+                int imgShapeId = Utilities.
                         getResourceIdByName(myContext, "drawable", "emblem_shape_" + imgCurrentShape);
                 imgEmblem.setImageResource(imgShapeId);
-                imageViewId = Utility.getResourceIdByName(myContext, "id", "imgShape" + imgCurrentShape);
+                imageViewId = Utilities.getResourceIdByName(myContext, "id", "imgShape" + imgCurrentShape);
                 imgShapeSelected = (ImageView) view.findViewById(imageViewId);
                 imgShapeSelected.setBackgroundResource(R.drawable.background_white_border_green);
             }

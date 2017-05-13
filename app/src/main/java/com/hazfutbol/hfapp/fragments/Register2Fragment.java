@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.hazfutbol.hfapp.R;
 import com.hazfutbol.hfapp.models.Player;
 import com.hazfutbol.hfapp.utils.MyConstants;
+import com.hazfutbol.hfapp.utils.Utilities;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,7 +32,7 @@ import java.util.Date;
  */
 public class Register2Fragment extends Fragment {
 
-    private static final String MASCULINO = "Masculino";
+    private static final String MALE = "Masculino";
     private Context myContext;
     private Resources myResources;
     private EditText txtBirthDate;
@@ -101,7 +102,7 @@ public class Register2Fragment extends Fragment {
                 }
 
                 if (!(gender.isEmpty() || null == birthDate)) {
-                    int genderId = MASCULINO.equals(gender) ? 1 : 2;
+                    int genderId = MALE.equals(gender) ? 1 : 2;
 
                     Player player = new Player();
                     player.setPlayerBirthday(birthDate);
@@ -118,6 +119,8 @@ public class Register2Fragment extends Fragment {
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_register2, page3);
                     fragmentTransaction.addToBackStack(null);
+
+                    Utilities.hideSoftKeyboard(getActivity());
                     fragmentTransaction.commit();
                 } else {
                     if (null == birthDate) {

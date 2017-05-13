@@ -2,7 +2,7 @@ package com.hazfutbol.hfapp.webServices;
 
 import com.hazfutbol.hfapp.models.User;
 import com.hazfutbol.hfapp.utils.MyConstants;
-import com.hazfutbol.hfapp.utils.Utility;
+import com.hazfutbol.hfapp.utils.Utilities;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,7 +10,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +26,7 @@ public class UserService {
         dataToSend.put("email", user.getUserEmail());
         dataToSend.put("password", user.getUserPassword());
         dataToSend.put("format", "json");
-        String encodedString = Utility.encodeMap(dataToSend);
+        String encodedString = Utilities.encodeMap(dataToSend);
 
         String myUrl = MyConstants.BASE_URL + "/user/register";
 
@@ -57,7 +56,7 @@ public class UserService {
         dataToSend.put("username", username);
         dataToSend.put("userpassword", password);
         dataToSend.put("format", "json");
-        String encodedString = Utility.encodeMap(dataToSend);
+        String encodedString = Utilities.encodeMap(dataToSend);
 
         String myUrl = MyConstants.BASE_URL + "/user/login";
 
@@ -75,7 +74,7 @@ public class UserService {
 
         if (connection.getResponseCode() == 200) {
             try {
-                JSONObject jsonUser = Utility.getJsonFromWS(connection);
+                JSONObject jsonUser = Utilities.getJsonFromWS(connection);
                 user = new User();
                 user.setUserId(jsonUser.getInt("user_id"));
                 user.setUserEmail(jsonUser.getString("user_email"));

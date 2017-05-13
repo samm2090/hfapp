@@ -15,6 +15,7 @@ import com.hazfutbol.hfapp.R;
 import com.hazfutbol.hfapp.fragments.Register2Fragment;
 import com.hazfutbol.hfapp.models.User;
 import com.hazfutbol.hfapp.utils.MyConstants;
+import com.hazfutbol.hfapp.utils.Utilities;
 
 /**
  * User registration first view
@@ -58,6 +59,7 @@ public class RegisterActivity extends Activity {
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.activity_register, page2);
                     fragmentTransaction.addToBackStack(null);
+                    Utilities.hideSoftKeyboard(RegisterActivity.this);
 
                     fragmentTransaction.commit();
                 } else {

@@ -25,16 +25,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="120dp"
+                    android:layout_marginLeft="90dp"
                     android:text="@string/upload_your_photo"
                     android:textColor="@color/white"
-                    android:textSize="20sp"/>
+                    android:textSize="18sp"/>
 
                 <Button
                     android:id="@+id/btnUploadPhoto"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="2dp"
+                    android:layout_marginLeft="5dp"
+                    android:textAllCaps="false"
                     android:background="@drawable/button_green_rounded_corners"
                     android:text="@string/upload"
                     android:textColor="@color/white"/>
@@ -45,21 +46,21 @@
                 android:id="@+id/profile_image"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="-50dp"
                 android:src="@drawable/photo_default"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
                 android:orientation="vertical"
                 android:padding="15dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:orientation="vertical">
 
                     <TextView
@@ -78,7 +79,7 @@
                         android:background="@drawable/edittext_color_green"
                         android:hint="@string/nickname"
                         android:imeOptions="actionDone"
-                        android:inputType="text"
+                        android:inputType="textNoSuggestions"
                         android:maxLines="1"
                         android:textColor="@color/hf_gray"
                         android:textColorHint="@color/hf_gray"
@@ -120,7 +121,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="30dp"
+                            android:layout_marginLeft="10dp"
                             android:drawableLeft="@drawable/icon_shirt"
                             android:text="@string/goalkeeper"
                             android:textColor="@color/hf_gray"
@@ -132,8 +133,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="27dp"
+                            android:background="@drawable/ratingbar_hf"
                             android:max="5"
                             android:numStars="5"
+                            android:rating="1"
                             android:stepSize="1.0"/>
 
                     </LinearLayout>
@@ -148,7 +151,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="30dp"
+                            android:layout_marginLeft="10dp"
                             android:drawableLeft="@drawable/icon_player_defender"
                             android:text="@string/defender"
                             android:textColor="@color/hf_gray"
@@ -162,6 +165,7 @@
                             android:layout_marginLeft="18dp"
                             android:max="5"
                             android:numStars="5"
+                            android:rating="1"
                             android:stepSize="1.0"
                             />
 
@@ -177,7 +181,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="30dp"
+                            android:layout_marginLeft="10dp"
                             android:drawableLeft="@drawable/icon_player_midfielder"
                             android:text="@string/midfielder"
                             android:textColor="@color/hf_gray"
@@ -190,7 +194,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="21dp"
                             android:max="5"
+
                             android:numStars="5"
+                            android:rating="1"
                             android:stepSize="1.0"/>
 
                     </LinearLayout>
@@ -205,7 +211,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="30dp"
+                            android:layout_marginLeft="10dp"
                             android:drawableLeft="@drawable/icon_player_striker"
                             android:text="@string/forward"
                             android:textColor="@color/hf_gray"
@@ -219,6 +225,7 @@
                             android:layout_marginLeft="8dp"
                             android:max="5"
                             android:numStars="5"
+                            android:rating="1"
                             android:stepSize="1.0"/>
                     </LinearLayout>
 

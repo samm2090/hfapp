@@ -6,6 +6,7 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,9 +19,24 @@ import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.hazfutbol.hfapp.R;
+import com.hazfutbol.hfapp.models.Player;
+import com.hazfutbol.hfapp.models.PlayerPosition;
+import com.hazfutbol.hfapp.utils.MyConstants;
+import com.hazfutbol.hfapp.utils.Utilities;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * User registration fourth view
+ */
 public class Register4Fragment extends Fragment {
 
+    private static final int REQUEST_CODE_IMG_PICKER = 1;
     private Context myContext;
     private Resources myResources;
     private EditText txtNickname;
@@ -31,6 +47,10 @@ public class Register4Fragment extends Fragment {
     private Button btnUploadPhoto;
     private Button btnNext;
     private ImageView profileImage;
+    private String fileName;
+    private String filePath;
+//    private Uri fileUri;
+//    private byte[] imageBytes;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,34 +72,110 @@ public class Register4Fragment extends Fragment {
         btnNext = (Button) view.findViewById(R.id.btnNext);
         profileImage = (ImageView) view.findViewById(R.id.profile_image);
 
+        rbGoalkeeper.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                if(rating < 1){
+                    rbGoalkeeper.setRating(1);
+                }
+            }
+        });
+
+        rbDefender.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                if(rating < 1){
+                    rbDefender.setRating(1);
+                }
+            }
+        });
+
+        rbMidFielder.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                if(rating < 1){
+                    rbMidFielder.setRating(1);
+                }
+            }
+        });
+
+        rbForward.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                if(rating < 1){
+                    rbForward.setRating(1);
+                }
+            }
+        });
+
         btnUploadPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
                 getIntent.setType("image/*");
 
-                Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images
+                        .Media.EXTERNAL_CONTENT_URI);
                 pickIntent.setType("image/*");
-
                 Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
                 chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{pickIntent});
 
-                startActivityForResult(chooserIntent, 1);
+                startActivityForResult(chooserIntent, REQUEST_CODE_IMG_PICKER);
             }
         });
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = getArguments();
+                String nickname = txtNickname.getText().toString();
+                String goalKeeperStatus = String.valueOf(Math.round(rbGoalkeeper.getRating()));
+                String defenderStatus = String.valueOf(Math.round(rbDefender.getRating()));
+                String midfielderStatus = String.valueOf(Math.round(rbMidFielder.getRating()));
+                String forwardStatus = String.valueOf(Math.round(rbForward.getRating()));
 
-                Register5Fragment page5 = new Register5Fragment();
-                page5.setArguments(bundle);
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_register4, page5);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                if (filePath != null) {
+                    Bundle bundle = getArguments();
+
+                    bundle.putString(MyConstants.FILE_NAME, fileName);
+                    bundle.putString(MyConstants.FILE_PATH, filePath);
+//                    bundle.putByteArray(MyConstants.FILE_BYTES, imageBytes);
+                    Player player = bundle.getParcelable(MyConstants.PLAYER);
+                    player.setPlayerNick(nickname);
+
+                    ArrayList<PlayerPosition> playerPositions = new ArrayList<PlayerPosition>();
+                    for (int i = 1; i >= 10; i++) {
+                        PlayerPosition playerPosition = new PlayerPosition();
+                        playerPosition.setnPositionPreferId(i);
+                        if (i == 1) {
+                            playerPosition.setPositionPreferStatus(goalKeeperStatus);
+                        } else if (i <= 4) {
+                            playerPosition.setPositionPreferStatus(defenderStatus);
+                        } else if (i <= 7) {
+                            playerPosition.setPositionPreferStatus(midfielderStatus);
+                        } else {
+                            playerPosition.setPositionPreferStatus(forwardStatus);
+                        }
+
+                        playerPositions.add(playerPosition);
+                    }
+
+                    bundle.putParcelable(MyConstants.PLAYER, player);
+                    bundle.putParcelableArrayList(MyConstants.PLAYER_POSITIONS, playerPositions);
+
+                    Register5Fragment page5 = new Register5Fragment();
+                    page5.setArguments(bundle);
+                    FragmentManager fragmentManager = getFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.fragment_register4, page5);
+                    fragmentTransaction.addToBackStack(null);
+
+                    Utilities.hideSoftKeyboard(getActivity());
+                    fragmentTransaction.commit();
+                } else {
+                    Toast.makeText(myContext, myResources.getString(R.string
+                            .user_register_incomplete4), Toast
+                            .LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -90,11 +186,25 @@ public class Register4Fragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == getActivity().RESULT_OK) {
-            Uri selectedImage = data.getData();
+        if (requestCode == REQUEST_CODE_IMG_PICKER) {
+            if (resultCode == getActivity().RESULT_OK) {
+                Uri selectedImage = data.getData();
+                CropImage.activity(selectedImage).start(myContext, this);
+            }
+        }
 
-            profileImage.setImageURI(selectedImage);
-
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == getActivity().RESULT_OK) {
+                String originalPath = result.getOriginalUri().getPath();
+                String path = result.getUri().getPath();
+                fileName = originalPath.substring(originalPath.lastIndexOf("/") + 1);
+                filePath = result.getUri().getPath();
+//                fileUri = result.getUri();
+                profileImage.setImageURI(result.getUri());
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                Exception error = result.getError();
+            }
         }
     }
 }

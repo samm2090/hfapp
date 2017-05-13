@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.hazfutbol.hfapp.R;
 import com.hazfutbol.hfapp.models.Team;
-import com.hazfutbol.hfapp.utils.Utility;
+import com.hazfutbol.hfapp.utils.Utilities;
 import com.hazfutbol.hfapp.viewHolders.TeamViewHolder;
 import com.squareup.picasso.Picasso;
 
@@ -36,7 +36,7 @@ public class TeamListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         TeamViewHolder teamViewHolder = (TeamViewHolder) holder;
 
         Picasso.with(myContext).
-                load(Utility.getImgFullUrl(myTeams.get(position).
+                load(Utilities.getImgFullUrl(myTeams.get(position).
                         getGroupPhoto())).error(R.color.hf_blue).into(teamViewHolder.imgEmblem);
         teamViewHolder.lblTeamName.setText(myTeams.get(position).getGroupName());
         teamViewHolder.lblNumberOfMembers.

@@ -12,6 +12,7 @@
     <string name="tournaments">Torneos</string>
     <string name="create_team">Crear Equipo</string>
     <string name="add_new_player">Agregar otro jugador</string>
+    <string name="create_account">Crear Cuenta</string>
 
     <!--Links-->
     <string name="login">Iniciar Sesión</string>
@@ -24,6 +25,51 @@
     <string name="register_question5">¿Cúales son las características de tu juego?</string>
     <string name="register_question5_option">Puedes escojer más de una</string>
     <string name="register_question5_option2">Si no la encuentras, escríbela aquí</string>
+    <string name="terms_of_use"><b><u>Términos de Uso</u></b></string>
+    <string name="terms_full_text">
+        <![CDATA[
+        <html><head></head><body>
+        <h3><b>1. Presentación</b></h3>
+        <p style="text-align:justify;">
+            <b>1.1</b> El presente documento establece las condiciones contractuales de acceso y uso de la red social HAZFUTBOL.COM, en adelante LA RED, propiedad de SPORT NET S.A.C., en adelante SPORT NET, con RUC 20547195745, registrada en Lima, Perú, y de la otra parte Usted, en adelante EL USUARIO, desde el momento en que usted se registra, momento en el cual ha manifestado haberlo leído y estar de acuerdo con cumplir su contenido.
+        </p>
+        <p style="text-align:justify;">
+            <b>1.2</b> Los servicios que le ofrece SPORT NET a través de LA RED,
+            serán gratuitos para EL USUARIO que tenga el perfil de JUGADOR,
+            sin que SPORT NET tenga el impedimento de implementar nuevos
+            servicios que requieran del pago de tarifas especiales. El
+             alcance de la gratuidad de los servicios de LA RED, no son
+             aplicables a los Tipos de Usuario: Propietarios de Canchas,
+             Organizadores de Torneos y Proveedores, quienes tendrán su
+             propio contrato con SPORT NET y en el cual, se regularan los
+             servicios y las retribuciones pertinentes.
+        </p><br/><hr>
+        <h3><b>2. Compromiso del Usuario</b></h3>
+        <p style="text-align:justify;">
+            <b>2.1</b> EL USUARIO declara que todos los datos que registre en LA
+             RED serán reales. SPORT NET queda autorizado, más no obligado,
+              a verificar los datos de EL USUARIO, para lo cual podrá
+              requerirle a través del correo con el que se registró en
+              LA RED, su acreditación documentaria. Si EL USUARIO no
+              respondiera al correo enviado dentro del plazo de 24 horas,
+              o su explicación no fuera suficiente para SPORT NET,
+               éste quedará autorizado a suspender o a cancelar su registro,
+               según le parezca.
+        </p>
+        <p style="text-align:justify;">
+            <b>2.2</b> EL USUARIO declara que es mayor de 18 años y que no tiene
+            impedimento legal para contratar servicios como el de LA RED.
+        </p>
+        <p style="text-align:justify;">
+            <b>2.3</b> Para utilizar LA RED, EL USUARIO se compromete a emplear una
+            computadora o dispositivo que cumpla las mismas funciones,
+            una conexión a Internet y las últimas versiones de cualquier
+            navegador compatible con lenguaje HTML, CSS3 y que admita la
+            ejecución de aplicaciones en lenguaje JavaScript. Asimismo,
+            deberá configurar su navegador para que acepte cookies.
+        </p>
+        </body></html>
+    ]]></string>
     <string name="upload_your_photo">Sube tu foto</string>
     <string name="join_team">O también puedes unirte a uno</string>
     <string name="name_your_team">Ponle un nombre a tu equipo</string>
@@ -74,6 +120,7 @@
     <string name="user_register_incomplete1">Debe ingresar nombre y apellidos</string>
     <string name="user_register_incomplete2">Debe ingresar fecha de nacimiento</string>
     <string name="user_register_incomplete3">Debe ingresar email y contraseña</string>
+    <string name="user_register_incomplete4">Debe ingresar una foto de perfil</string>
 
     <!--Validation error tooltip-->
     <string name="name_mandatory">El nombre es obligatorio</string>

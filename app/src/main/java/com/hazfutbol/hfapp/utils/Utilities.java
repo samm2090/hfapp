@@ -1,6 +1,8 @@
 package com.hazfutbol.hfapp.utils;
 
+import android.app.Activity;
 import android.content.Context;
+import android.view.inputmethod.InputMethodManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,7 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.Map;
 
-public final class Utility {
+public final class Utilities {
 
     public static String encodeMap(Map<String, String> data) {
         StringBuilder sb = new StringBuilder();
@@ -33,7 +35,7 @@ public final class Utility {
         return sb.toString();
     }
 
-    public static String getImgFullUrl(String storagePath){
+    public static String getImgFullUrl(String storagePath) {
 
         StringBuilder fullUrl = new StringBuilder(MyConstants.BASE_CDN_URL);
         fullUrl.append("/player/images/");
@@ -49,15 +51,25 @@ public final class Utility {
         return resourceId;
     }
 
-    public static JSONObject getJsonFromWS(HttpURLConnection connection) throws IOException, JSONException {
+    public static JSONObject getJsonFromWS(HttpURLConnection connection) throws IOException,
+            JSONException {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         String line;
         StringBuilder jsonString = new StringBuilder();
 
-        while((line=reader.readLine())!= null){
+        while ((line = reader.readLine()) != null) {
             jsonString.append(line + "\n");
         }
         return new JSONObject(jsonString.toString());
+    }
+
+    public static void hideSoftKeyboard(Activity activity) {
+        activity.getCurrentFocus().clearFocus();
+        if (activity.getCurrentFocus() != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService
+                    (activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+        }
     }
 }
