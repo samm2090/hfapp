@@ -3,19 +3,23 @@ package com.hazfutbol.hfapp.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
+
 /**
  * Represents a hf_player_skill
  */
-public class PlayerSkill implements Parcelable {
+public class PlayerSkill implements Parcelable, Serializable {
 
     private Integer skillId;
     private String skillName;
     private String skillNameGroup;
+    private String extraSkill;
 
     public PlayerSkill(Parcel source) {
         skillId = source.readInt();
         skillName = source.readString();
         skillNameGroup = source.readString();
+        extraSkill = source.readString();
     }
 
     public PlayerSkill() {
@@ -36,6 +40,7 @@ public class PlayerSkill implements Parcelable {
         dest.writeValue(skillId);
         dest.writeString(skillName);
         dest.writeString(skillNameGroup);
+        dest.writeString(extraSkill);
     }
 
     public static final Creator<PlayerSkill> CREATOR = new Creator<PlayerSkill>() {
@@ -74,4 +79,11 @@ public class PlayerSkill implements Parcelable {
         this.skillNameGroup = skillNameGroup;
     }
 
+    public String getExtraSkill() {
+        return extraSkill;
+    }
+
+    public void setExtraSkill(String extraSkill) {
+        this.extraSkill = extraSkill;
+    }
 }

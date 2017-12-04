@@ -3,10 +3,12 @@ package com.hazfutbol.hfapp.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
+
 /**
  * Represents a hf_position_prefer
  */
-public class PlayerPosition implements Parcelable {
+public class PlayerPosition implements Parcelable, Serializable {
 
     private Integer nPositionPreferId;
     private Integer userPlayerId;

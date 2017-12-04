@@ -6,7 +6,6 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,12 +23,10 @@ import com.hazfutbol.hfapp.models.PlayerPosition;
 import com.hazfutbol.hfapp.utils.MyConstants;
 import com.hazfutbol.hfapp.utils.Utilities;
 import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * User registration fourth view
@@ -48,9 +45,7 @@ public class Register4Fragment extends Fragment {
     private Button btnNext;
     private ImageView profileImage;
     private String fileName;
-    private String filePath;
-//    private Uri fileUri;
-//    private byte[] imageBytes;
+    private String fileContent;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -133,17 +128,16 @@ public class Register4Fragment extends Fragment {
                 String midfielderStatus = String.valueOf(Math.round(rbMidFielder.getRating()));
                 String forwardStatus = String.valueOf(Math.round(rbForward.getRating()));
 
-                if (filePath != null) {
+                if (fileContent != null) {
                     Bundle bundle = getArguments();
 
                     bundle.putString(MyConstants.FILE_NAME, fileName);
-                    bundle.putString(MyConstants.FILE_PATH, filePath);
-//                    bundle.putByteArray(MyConstants.FILE_BYTES, imageBytes);
+                    bundle.putString(MyConstants.FILE_CONTENT, fileContent);
                     Player player = bundle.getParcelable(MyConstants.PLAYER);
                     player.setPlayerNick(nickname);
 
                     ArrayList<PlayerPosition> playerPositions = new ArrayList<PlayerPosition>();
-                    for (int i = 1; i >= 10; i++) {
+                    for (int i = 1; i <= 10; i++) {
                         PlayerPosition playerPosition = new PlayerPosition();
                         playerPosition.setnPositionPreferId(i);
                         if (i == 1) {
@@ -197,11 +191,14 @@ public class Register4Fragment extends Fragment {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == getActivity().RESULT_OK) {
                 String originalPath = result.getOriginalUri().getPath();
-                String path = result.getUri().getPath();
                 fileName = originalPath.substring(originalPath.lastIndexOf("/") + 1);
-                filePath = result.getUri().getPath();
-//                fileUri = result.getUri();
+                File file = new File(result.getUri().getPath());
                 profileImage.setImageURI(result.getUri());
+                try {
+                    fileContent = Utilities.encodeFileBase64(file);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();
             }

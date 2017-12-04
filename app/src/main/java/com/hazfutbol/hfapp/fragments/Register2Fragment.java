@@ -38,7 +38,6 @@ public class Register2Fragment extends Fragment {
     private EditText txtBirthDate;
     private RadioGroup rbtnGender;
     private Button btnNext;
-    private SimpleDateFormat simpleDateFormat;
     private DatePickerDialog datePickerDialog;
     private Calendar calendar;
     private int actualYear;
@@ -59,7 +58,6 @@ public class Register2Fragment extends Fragment {
         txtBirthDate = (EditText) view.findViewById(R.id.txtBirthDate);
         rbtnGender = (RadioGroup) view.findViewById(R.id.rbtnGender);
         btnNext = (Button) view.findViewById(R.id.btnNext);
-        simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         calendar = Calendar.getInstance();
         actualYear = calendar.get(Calendar.YEAR);
@@ -77,7 +75,7 @@ public class Register2Fragment extends Fragment {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         calendar.set(year, month, dayOfMonth);
-                        txtBirthDate.setText(simpleDateFormat.format(calendar.getTime()));
+                        txtBirthDate.setText(Utilities.standardDateFormat(calendar.getTime()));
                     }
                 }, actualYear, actualMonth, actualDay);
 
@@ -96,18 +94,17 @@ public class Register2Fragment extends Fragment {
 
                 Date birthDate = null;
                 try {
-                    birthDate = simpleDateFormat.parse(txtBirthDate.getText().toString());
+                    birthDate = Utilities.standardDateFormat(txtBirthDate.getText().toString());
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
 
-                if (!(gender.isEmpty() || null == birthDate)) {
-                    int genderId = MALE.equals(gender) ? 1 : 2;
+                if (!(gender.isEmpty() || birthDate == null)) {
+                    int genderId = gender.equals(MALE) ? 1 : 2;
 
                     Player player = new Player();
                     player.setPlayerBirthday(birthDate);
                     player.setPlayerGender(genderId);
-                    player.setUserId(2);
 
                     Bundle bundle = getArguments();
                     bundle.putParcelable(MyConstants.PLAYER, player);

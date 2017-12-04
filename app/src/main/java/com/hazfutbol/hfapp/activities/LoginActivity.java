@@ -17,6 +17,8 @@ import com.hazfutbol.hfapp.models.User;
 import com.hazfutbol.hfapp.utils.MyConstants;
 import com.hazfutbol.hfapp.webServices.UserService;
 
+import org.json.JSONException;
+
 import java.io.IOException;
 
 public class LoginActivity extends Activity {
@@ -69,6 +71,8 @@ public class LoginActivity extends Activity {
                 user = userService.login(params[0], params[1]);
                 result = true;
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
 

@@ -45,6 +45,11 @@ public class CityService {
             city.setStatus(jsonCity.isNull("status") ? null : jsonCity.optInt("status"));
             cities.add(city);
         }
+
+        if(httpConnection != null){
+            httpConnection.disconnect();
+        }
+
         return cities;
     }
 }

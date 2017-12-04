@@ -82,7 +82,6 @@ public class Register3Fragment extends Fragment {
                 }
             }
         });
-
         return view;
     }
 }

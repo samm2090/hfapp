@@ -3,12 +3,13 @@ package com.hazfutbol.hfapp.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Represents a hf_user_player
  */
-public class Player implements Parcelable {
+public class Player implements Parcelable, Serializable {
     private Integer userPlayerId;
     private Integer userId;
     private String playerImageProfile;

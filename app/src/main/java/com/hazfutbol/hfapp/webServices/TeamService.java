@@ -49,6 +49,11 @@ public class TeamService {
             team.setGroupId(jsonTeam.isNull("group_shortname") ? null : jsonTeam.optInt("group_shortname"));
             teams.add(team);
         }
+
+        if(httpConnection != null){
+            httpConnection.disconnect();
+        }
+
         return teams;
     }
 }

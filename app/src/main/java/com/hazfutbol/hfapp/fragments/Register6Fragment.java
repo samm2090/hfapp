@@ -20,19 +20,14 @@ import com.hazfutbol.hfapp.models.User;
 import com.hazfutbol.hfapp.utils.MyConstants;
 import com.hazfutbol.hfapp.webServices.UserService;
 
-import org.apache.commons.net.ftp.FTP;
-import org.apache.commons.net.ftp.FTPClient;
+import org.json.JSONException;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Socket;
 import java.util.ArrayList;
 
 /**
- * User registration fourth view
+ * User registration last view
  */
 public class Register6Fragment extends Fragment {
 
@@ -65,7 +60,6 @@ public class Register6Fragment extends Fragment {
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(myContext,"entor",Toast.LENGTH_SHORT).show();
                 new Register6Fragment.UserRegisterAsyncTask().execute();
 
             }
@@ -85,50 +79,22 @@ public class Register6Fragment extends Fragment {
             User user = bundle.getParcelable(MyConstants.USER);
             Player player = bundle.getParcelable(MyConstants.PLAYER);
             String fileName = bundle.getString(MyConstants.FILE_NAME);
-            String filePath = bundle.getString(MyConstants.FILE_PATH);
+            String fileContent = bundle.getString(MyConstants.FILE_CONTENT);
             ArrayList<PlayerPosition> playerPositions = bundle.getParcelableArrayList(MyConstants
                     .PLAYER_POSITIONS);
             ArrayList<PlayerSkill> playerSkills = bundle.getParcelableArrayList(MyConstants
                     .PLAYER_SKILLS);
 
+            UserService userService = new UserService();
 
-
-//            FTPClient ftpClient = new FTPClient();
-//            try {
-//
-//                ftpClient.connect(MyConstants.SERVER_IP, Integer.valueOf(MyConstants.SERVER_PORT));
-//                ftpClient.login(MyConstants.SERVER_USER, MyConstants.SERVER_PASS);
-//                ftpClient.enterLocalPassiveMode();
-//
-//                ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
-//
-//                File file = new File(filePath);
-//                String remoteFilePath = "/home/ftp_springloops/" + fileName + ".png";
-//
-//                InputStream inputStream = new FileInputStream(file);
-//                System.out.println(ftpClient.storeFile(remoteFilePath, inputStream));
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            } finally {
-//                if (ftpClient.isConnected()) {
-//                    try {
-//                        ftpClient.logout();
-//                        ftpClient.disconnect();
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }
-
-
-//            UserService userService = new UserService();
-//            try {
-//                userService.insertUser(params[0]);
-//                result = true;
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                result = userService.createUser(user, player, fileName, fileContent, playerPositions,
+                        playerSkills);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
             return result;
         }
@@ -139,6 +105,7 @@ public class Register6Fragment extends Fragment {
 
 
             } else {
+                Toast.makeText(myContext, "error", Toast.LENGTH_SHORT);
             }
         }
     }

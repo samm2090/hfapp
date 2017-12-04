@@ -223,5 +223,4 @@ public class Register5Fragment extends Fragment {
             }
         }
     }
-
 }

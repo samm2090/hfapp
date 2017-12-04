@@ -46,6 +46,10 @@ public class PlayerSkillService {
             playerSkills.add(playerSkill);
         }
 
+        if(httpConnection != null){
+            httpConnection.disconnect();
+        }
+
         return  playerSkills;
     }
 }

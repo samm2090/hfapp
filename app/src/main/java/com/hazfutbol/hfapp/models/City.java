@@ -3,10 +3,12 @@ package com.hazfutbol.hfapp.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
+
 /**
  * Represents a hf_city
  */
-public class City implements Parcelable {
+public class City implements Parcelable, Serializable {
 
     private Integer cityId;
     private Integer provinceId;
